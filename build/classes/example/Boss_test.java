@@ -21,7 +21,7 @@ import static java.nio.file.Files.size;
 import java.text.AttributedCharacterIterator;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import static startpage.Workspace.toolkit;
+import static Work.Workspace.toolkit;
 
 /**
  *
