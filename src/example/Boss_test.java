@@ -22,6 +22,7 @@ import java.text.AttributedCharacterIterator;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import static Work.Workspace.toolkit;
+import static example.Draw.x1;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -151,55 +152,116 @@ class Panet extends JPanel {
      // g.drawString("dfdsfsdf", 200, 200);
    
      }*/
-    BufferedImage font,img;
+    BufferedImage font,comp,swit4,hub;
     Panet() {
-
+   setLayout(null);
         try {
-            font =ImageIO.read(new File("C:\\Java_workbench\\Diplom\\General_image/Fon.jpg")); //BackGround image
-            img = ImageIO.read(new File("C:\\Java_workbench\\Diplom\\General_image/Comp_slow.png")); //Computer model
+            font =ImageIO.read(new File("General_image/Fon.jpg")); //BackGround image
+            comp = ImageIO.read(new File("General_image/Comp_slow.png")); //Computer model
+            swit4=ImageIO.read(new File("General_image/switch.png"));//Switch model
+            hub = ImageIO.read(new File("General_image/hub.png"));//Hub model
+         
         } catch (IOException ex) {
             Logger.getLogger(Panet.class.getName()).log(Level.SEVERE, null, ex);
         }
   
     }
-    public void Panet() {
+    //============================================================
+    public static   int x1 = 100, x2 = 120, y1 = 100, y2 = 100;
+  
+public  void paint1(Graphics g){
+      repaint();
+    
    
-    }
+    
+    
+  
+    
+Graphics2D g2D = (Graphics2D) g;
+BasicStroke pen1 = new BasicStroke(5);
+g2D.setStroke(pen1);
 
+g.setColor(Color.BLUE); 
+try {
+while (x1 != 400) {
+     System.out.println("x1:" + x1 + " x2:" + x2);
+g.drawLine(x1, y1, x2, y2);
+x1 += 30;
+x2 += 30;
+Thread.sleep(150);
+
+}
+x1 = 100;
+x2 = 120;
+} catch (InterruptedException ex) {
+
+
+
+} 
+ 
+
+}
+    
+//================================================================================
+    
+    
     public void paint(Graphics g) {
-   g.drawImage(font, 0, 0, getWidth(), getHeight(), null);
-   g.drawImage(img,100,100,null);
+   g.drawImage(font, 0, 0, getWidth(), getHeight(), null);// set BorderIcon
+
+   g.drawImage(swit4,350,50,this);
+   g.drawImage(swit4, 440, 100, this);
+   
+   
+   g.drawImage(hub, 300, 300,75,75, this);
+   g.drawImage(hub,525, 430,70,70,this);//4
+   
+   g.drawImage(comp,335, 120,this);//1
+   g.drawImage(comp,455, 165,this);//2
+   g.drawImage(comp,375, 450,this);//3
+   g.drawImage(comp,675, 450,this);//4
+   g.drawImage(comp,550, 550,this);//5
+   g.drawImage(comp,800, 550,this);//6
+   g.drawImage(comp,260, 170,this);//7
+   g.drawImage(comp,50,  500,this);//8
+   g.drawImage(comp,210, 500,this);//9
     }
 
 }
 
 public class Boss_test extends JFrame {
 
-    static Panet pa = new Panet();
+
     public static Toolkit toolkit;
 
-    public static void main(String[] args) {
-
-        Boss_test frame = new Boss_test();
-
-        frame.setVisible(true);
-    }
+   
 
     public Boss_test() {
-
+Panet panel = new Panet();
         setTitle("Start page");
-
+       
         setSize(1000, 800);
+        add(panel);
+        this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation((size.width - getWidth()) / 2, (size.height - getHeight()) / 2);
-        //Graphics g = null;
+ 
         boolean flag = true;
-
-        add(new Panet());
-         //pa.draw_universal(100,100);
-
-        //pa.draw_universal(100,300);
+        panel.paint(panel.getGraphics()); 
+       
+        //dynamics drawing line
+ 
+ /*        while(true){
+            panel.paint1(panel.getGraphics());
+            }*/
+        
     }
+     public static void main(String[] args) {
+
+     
+
+       new Boss_test().setVisible(true);
+    }
+    
 }

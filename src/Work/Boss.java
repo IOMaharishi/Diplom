@@ -24,11 +24,12 @@ public class Boss extends JFrame {
 
     public static void Check1() throws IOException, ClassNotFoundException {
         try {
-           /* UIManager.setLookAndFeel(
-                    UIManager.getCrossPlatformLookAndFeelClassName());*/
-      //      UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-       // UIManager.setLookAndFeel("com.incors.plaf.kunststoff.KunststoffLookAndFeel");  
+       
             UIManager.setLookAndFeel(new PlasticXPLookAndFeel());  
+           
+            
+            // select the Look and Feel
+           // UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel"); //Jtatto L&F
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(Boss.class.getName()).log(Level.SEVERE, null, ex);
         }
