@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package example;
 
 import java.awt.BasicStroke;
@@ -202,28 +197,55 @@ x2 = 120;
 
 }
     
-//================================================================================
+/**
+ * Drawig static model(computer,switch,hub and lines)
+ *  
+ */
     
     
     public void paint(Graphics g) {
-   g.drawImage(font, 0, 0, getWidth(), getHeight(), null);// set BorderIcon
+        //Graphics2D g2D = (Graphics2D) g;
+        //BasicStroke pen1 = new BasicStroke(5);
+       //g2D.setStroke(pen1);
+ //  g.drawImage(font, 0, 0, getWidth(), getHeight(), null);// set BorderIcon
 
-   g.drawImage(swit4,350,50,this);
-   g.drawImage(swit4, 440, 100, this);
+   g.drawImage(swit4,340,50,this);//1
+   g.drawImage(swit4, 510, 125, this);//2
+   g.drawImage(swit4,120, 375,this);//3
    
-   
-   g.drawImage(hub, 300, 300,75,75, this);
+   g.drawImage(hub,150, 125,70,70,this);//1
+   g.drawImage(hub, 375, 300,70,70,this);//2
+   g.drawImage(hub,675, 300,70,70,this);//3
    g.drawImage(hub,525, 430,70,70,this);//4
+   g.drawImage(hub,800,430,70,70,this);//5
    
-   g.drawImage(comp,335, 120,this);//1
-   g.drawImage(comp,455, 165,this);//2
-   g.drawImage(comp,375, 450,this);//3
-   g.drawImage(comp,675, 450,this);//4
-   g.drawImage(comp,550, 550,this);//5
-   g.drawImage(comp,800, 550,this);//6
-   g.drawImage(comp,260, 170,this);//7
+   g.drawImage(comp,355, 140,this);//1
+   g.drawImage(comp,526, 250,this);//2
+   g.drawImage(comp,375, 475,this);//3
+   g.drawImage(comp,675, 475,this);//4
+   g.drawImage(comp,550, 600,this);//5
+   g.drawImage(comp,800, 600,this);//6
+   g.drawImage(comp,260, 260,this);//7
    g.drawImage(comp,50,  500,this);//8
    g.drawImage(comp,210, 500,this);//9
+   
+   g.drawLine(380,70,380,140); // sw4(1)-comp(1)
+   g.drawLine(360,65,185,135);//sw4(1)-hub(1)
+   g.drawLine(390,65,525,125);//sw4(1)-sw4(2)
+   g.drawLine(550,145,550,250);//sw4(2)-comp(2)
+   g.drawLine(510,150,410,310);//sw4(2)-hub(2)
+   g.drawLine(600,150,690,305);//sw4(2)-hub(3)
+   g.drawLine(410,355,410,475);//hub(2)-comp(3)
+   g.drawLine(690,340,560,440);//hub(3)-hub(4)
+   g.drawLine(700,350,700,475);//hub(3)-comp(4)
+   g.drawLine(710,355,810,440);//hub(3)-hub(5)
+   g.drawLine(830,480,830,600);//hub(5)-comp(6)
+   g.drawLine(560,488,575,600);//hub(4)-comp(5)
+   g.drawLine(185,175,270,260);//hub(1)-comp(7)
+   g.drawLine(175,175,175,375);//hub(1)-sw4(3)
+   g.drawLine(150,400,75,500);//sw4(3)--comp(8)
+   g.drawLine(200,400,250,500);//sw4(3)--comp(9)
+   
     }
 
 }
